@@ -60,3 +60,6 @@ def signin(request):
 
     else:
         return render(request,'signin.html')
+    
+
+def 
