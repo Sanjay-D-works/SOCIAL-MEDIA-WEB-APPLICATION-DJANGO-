@@ -50,6 +50,7 @@ def upload(request):
 #         post.save()
 #         return redirect('/')
 def like_post(request):
+
     username = request.user.username
     post_id = request.GET.get('post_id')
 
@@ -68,7 +69,22 @@ def like_post(request):
 
     return redirect('/')
 
+@login_required(login_url="signin")
+def profile(request, pk):
+    user_object = User.objects.get(username=pk)
+    user_profile = Profile.objects.get(user=user_object)
+    user_posts = Post.objects.filter(user=pk)
+    user_post_length = len(user_posts)
 
+    context = {
+        'user_object' : user_object,
+        'user_profile' : user_profile,
+        'user_posts' : user_posts,
+        'user_post_length' : user_post_length
+
+    }
+
+    return render(request, 'profile.html',  )
 
 @login_required(login_url="signin")
 def settings(request):
