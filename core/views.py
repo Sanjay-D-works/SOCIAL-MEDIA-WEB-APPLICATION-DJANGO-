@@ -84,8 +84,8 @@ def profile(request, pk):
     else:
         button_text = 'Follow'
 
-        user_followers = len(FollowersCount.objects.filter(user=pk))
-        user_following = len(FollowersCount.objects.filter(follower=pk))
+    user_followers = len(FollowersCount.objects.filter(user=pk))
+    user_following = len(FollowersCount.objects.filter(follower=pk))
 
 
 
