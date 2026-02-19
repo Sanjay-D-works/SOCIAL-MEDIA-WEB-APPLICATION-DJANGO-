@@ -18,7 +18,7 @@ def index(request):
     user_following = FollowersCount.objects.filter(follower=request.user.username)
 
     for users in user_following:
-        user_following_list.append(users.user)
+        user_following_list.append(users.user) 
 
     for usernames in user_following_list:
         feed_lists = Post.objects.filter(user=usernames)
