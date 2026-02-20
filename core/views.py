@@ -35,7 +35,7 @@ def index(request):
         user_list = User.objects.get(username=user.user)
         user_following_all.append(user_list)
 
-    new_suggestion_list = [x for x in list(all_users) if (x not in list(user_following_all()))]
+    new_suggestion_list = [x for x in list(all_users) if (x not in list(user_following_all))]
     current_user = User.objects.filter(username=request.user.username)
     final_suggestions_list = [x for x in list(new_suggestion_list) if (x not in list(current_user))]
 
@@ -54,7 +54,7 @@ def index(request):
     suggestion_username_profile_list = list(chain(*username_profile_list))
 
 
-    return render(request, "index.html", {'user_profile': user_profile, 'posts': feed_list, 'suggestion_username_profile_list':suggestion_username_profile_list})
+    return render(request, "index.html", {'user_profile': user_profile, 'posts': feed_list, 'suggestion_username_profile_list':suggestion_username_profile_list[:8]})
 
 @login_required(login_url="signin")
 def upload(request):
