@@ -70,6 +70,7 @@ def upload(request):
         return redirect('/')
     else:
         return redirect('/')
+    
     return HttpResponse('<h1>Upload Views</h1>')
 
 @login_required(login_url='signin')
