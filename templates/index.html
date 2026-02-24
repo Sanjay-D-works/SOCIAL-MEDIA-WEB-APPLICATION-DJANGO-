@@ -7,7 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'favicon.png' %}" rel="icon" type="image/png">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+<title>Home</title>
     <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,10 +17,10 @@
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 
 <body>
-
             <header>
                 <div class="header_inner">
                     <form action="/search" methods="POST">
@@ -136,11 +137,13 @@
                             <!-- post header-->
                             <div class="flex justify-between items-center px-4 py-3">
                                 <div class="flex flex-1 items-center space-x-4">
+                                    {% if post_profiles.post.id %}
                                     <a href="#">
                                         <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
-                                            <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
+                                            <img src="{{ post_profiles|dictsort:post.id.profileimg.url }}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
                                         </div>
                                     </a>
+                                    {% endif %}
                                     <span class="block capitalize font-semibold "> <a href="/profile/{{post.user}}">{{post.user}}</a> </span>
                                 </div>
                               <div>

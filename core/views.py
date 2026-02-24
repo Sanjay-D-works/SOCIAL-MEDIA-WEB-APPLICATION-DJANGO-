@@ -54,7 +54,7 @@ def index(request):
     suggestion_username_profile_list = list(chain(*username_profile_list))
 
 
-    return render(request, "index.html", {'user_profile': user_profile, 'posts': feed_list, 'suggestion_username_profile_list':suggestion_username_profile_list[:8]})
+    return render(request, "index.html", {'user_profile':user_profile, 'posts':feed_list, 'suggestion_username_profile_list':suggestion_username_profile_list[:8]})
 
 @login_required(login_url="signin")
 def upload(request):
@@ -135,7 +135,7 @@ def profile(request, pk):
     follower = request.user.username
     user = pk
 
-    if FollowersCount.objects.filter(follower=follower, user=user).first():
+    if FollowersCount.objects.filter(follower=follower, user=user).exists():
         button_text = 'Unfollow'
     else:
         button_text = 'Follow'
@@ -156,7 +156,7 @@ def profile(request, pk):
 
     }
 
-    return render(request, 'profile.html',  )
+    return render(request, 'profile.html', context)
 
 @login_required(login_url="signin")
 def follow(request):

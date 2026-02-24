@@ -43,7 +43,8 @@
 					{% else %}
 					<span style="color: white; font-size: 27px;"><b>{{user_followers}} followers</b></span>
 					{% endif %}
-					
+
+
 					<span style="color: white; font-size: 27px;"><b>{{user_following}} following</b></span>
 
 					<input type="hidden" value="{{user.username}}" name="follower" />
@@ -57,6 +58,8 @@
 
 					</div>
 				</form>
+
+				
 				<div class="container-fluid">
 					<div class="row merged">
 						<div class="col-lg-2 col-sm-3">
@@ -71,7 +74,7 @@
 							<div class="timeline-info">
 								<ul>
 									<li class="admin-name">
-									  <h5 style="color: black;white-space: nowrap; width: 110px; font-size: 27px;"><b>@{{user_profile.user.username}}</b><!--<i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>--></h5>
+									  <h5 style="color: black;white-space: nowrap; width: 110px; font-size: 27px;"><b>{{user_profile.user.username}}</b><!--<i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>--></h5>
 									  
 									</li>
 									
@@ -81,7 +84,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section><!-- top area -->
 		<section>
 			<div class="bio">
 					{{user_profile.bio}}
@@ -101,15 +104,6 @@
 									
 								</aside>
 							</div><!-- sidebar -->
-							
-
-
-
-
-
-
-
-
 
 							<div class="col-lg-6">
 								<div class="central-meta">
@@ -122,12 +116,11 @@
 										</li>
 										{% endfor %}
 										
-										
-										
 									</ul>
-									
+
 								</div><!-- photos -->
 							</div><!-- centerl meta -->
+
 							<div class="col-lg-3">
 								<aside class="sidebar static">
 									
